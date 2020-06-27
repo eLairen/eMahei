@@ -1,0 +1,124 @@
+
+
+{% load static %}
+ {% block navbar %}{% include 'navbar.html' %}{% endblock%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Mahei</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="{% static 'login/images/icons/favicon.ico' %}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'login/vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'login/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'login/vendor/animate/animate.css' %}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="{% static 'login/vendor/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'login/vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'login/css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'login/css/main.css' %}">
+<!--===============================================================================================-->
+</head>
+<body>
+{% block content %}		
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('{% static "login/images/img-01.jpg" %}');">
+			<div class="wrap-login100 p-t-50 p-b-20">
+				<form class="login100-form validate-form" method="POST">
+					{% csrf_token %}
+					<div class="login100-form-avatar">
+						<img src="{% static 'login/images/login/login_logo.png' %}" alt="AVATAR">
+					</div>
+
+					<span class="login100-form-title p-t-20 p-b-45">
+						Hello eMahei Students
+					</span>
+
+					
+
+					<div class="wrap-input100 validate-input m-b-10" data-validate = "Username is required">
+						<input class="input100" type="text" name="username" placeholder="Username">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-user"></i>
+						</span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-10" data-validate = "Password is required">
+						<input class="input100" type="password" name="password" placeholder="Password">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock"></i>
+						</span>
+					</div>
+					{% for message in messages %}
+						<div class="text-center w-full">
+							<p style="color:red;">{{message}}</p>
+						</div>
+					{% endfor %}
+
+					<div class="container-login100-form-btn p-t-10">
+						<input type="submit" class="login100-form-btn" Value="Sign In">
+						
+						</button>
+					</div>
+
+					<div class="text-center w-full p-t-25 p-b-40">
+						<a href="#" class="txt1">
+							Forgot Username / Password?
+						</a>
+						<br><br>
+						<a class="txt1" href="{% url 'register' %}">
+							Create new account
+							<i class="fa fa-long-arrow-right"></i>						
+						</a>
+					</div>
+
+					
+					
+
+					
+				</form>
+				
+			</div>
+		</div>
+	</div>
+	
+{% endblock %}	
+
+{% block footer %}{% include 'footer.html' %}{% endblock footer%}
+    <!-- # Footer Area End ##### -->
+
+    <!-- ##### All Javascript Script ##### -->
+    <!-- jQuery-2.2.4 js -->
+    <script src="{% static 'home/js/jquery/jquery-2.2.4.min.js' %}"></script>
+    <!-- Popper js -->
+    <script src="{% static 'home/js/bootstrap/popper.min.js' %}"></script>
+    <!-- Bootstrap js -->
+    <script src="{% static 'home/js/bootstrap/bootstrap.min.js' %}"></script>
+    <!-- All Plugins js -->
+    <script src="{% static 'home/js/plugins/plugins.js' %}"></script>
+    <!-- Active js -->
+    <script src="{% static 'home/js/active.js' %}"></script>
+
+	
+<!--===============================================================================================-->	
+	<script src="{% static 'login/vendor/jquery/jquery-3.2.1.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'login/vendor/bootstrap/js/popper.js'%}"></script>
+	<script src="{% static 'login/vendor/bootstrap/js/bootstrap.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'login/vendor/select2/select2.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'login/js/main.js'%}"></script>
+
+</body>
+</html>

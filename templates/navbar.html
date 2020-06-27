@@ -1,0 +1,127 @@
+
+
+{%load static %}
+
+{%block navbar%}
+<!-- ##### Header Area Start ##### -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *Must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+    <title>eMahei</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'home/img/core-img/favicon.png' %}">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="{% static 'home/style.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'home/style/style.scss' %}">
+     
+</head> 
+
+<header class="header-area">
+
+        <!-- Top Header Area -->
+        
+
+        <!-- Navbar Area -->
+        <div class="clever-main-menu">
+            <div class="classy-nav-container breakpoint-off">
+                <!-- Menu -->
+                <nav class="classy-navbar justify-content-between" id="cleverNav">
+
+                    <!-- Logo -->
+                    <a class="nav-brand" href="{% url 'eMahei' %}"><img src="{% static 'home/img/core-img/logo.png' %}" alt=""></a>
+                    
+                    <!-- Navbar Toggler -->
+                    <div class="classy-navbar-toggler">
+                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    </div>
+
+                    <!-- Menu -->
+                    <div class="classy-menu">
+
+                        <!-- Close Button -->
+                        <div class="classycloseIcon">
+                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                        </div>
+
+                        <!-- Nav Start -->
+                        <div class="classynav">
+                            <ul>
+                                <li><a href="">Courses</a>
+                                    <ul class="dropdown">
+                                        {% for c in cat_nav %}
+                                        <li><a href="{% url 'allcourses' c.id %}">{{c.name}}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                           <!-- Nav    
+                                <li><a href="">Courses</a>
+                                    <ul class="dropdown">
+                                        <li><a href="single-course.html">Free Courses</a></li>
+                                        <li><a href="instructors.html">Premium Courses</a></li>
+                                        <li><a href="instructors.html">Latest Courses</a></li>
+                                        <li><a href="instructors.html">Top Rated Courses</a></li>
+                                        <li><a href="instructors.html">Most Viewed </a></li>
+                                        <li><a href="blog.html">Sales</a></li>
+                                    </ul>
+                                </li>
+                            rt -->
+                                
+                                <li><a href="{% url 'blog' %}">Blog</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+
+                            <!-- Search Button -->
+                            <div class="search-area">
+                                <form action="#" method="post">
+                                {% csrf_token %}
+                                    <input type="search" name="search" id="search" placeholder="Search">
+                                    <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                </form>
+                            </div>
+
+                        
+                            <!-- Register / Login -->
+                            {% if user.is_authenticated %}
+                             <div class="login-state d-flex align-items-center">
+                                <div class="user-name mr-30">
+                                    <div class="dropdown">
+                                        <a class="dropdown-toggle" href="#" role="button" id="userName" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{user.username}}</a>
+                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userName">
+                                            <a class="dropdown-item" href="#">Profile</a>
+                                            <a class="dropdown-item" href="#">My Courses</a>
+                                            <a class="dropdown-item" href="#">Account Info</a>
+                                            <a class="dropdown-item" href="{% url 'logoutUser'%}">Logout</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="userthumb">
+                                    <img src="{% static 'login/images/avatar-01.jpg' %}" alt="">
+                                </div>
+                            </div>
+                            {% else %}
+                            <div class="register-login-area">
+                                <a href="{% url 'register' %}" class="btn">Register</a>
+                                <a href="{% url 'signin' %}" class="btn active">Login</a>
+                            </div>
+                            {% endif %}
+
+                           
+
+
+                        </div>
+                        <!-- Nav End -->
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+{% endblock %}

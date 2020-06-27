@@ -1,0 +1,169 @@
+{% load static %}
+<!-- ##### Header Area End ##### -->
+    {% block navbar %}{% include 'navbar.html' %}{% endblock%}
+
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <style>
+
+    .sidenav {
+
+        height: 100%;
+        width: 20%;
+        position: fixed;
+        z-index: 1;
+        top: 50px;
+        left: 0;
+        background-color: coral;
+        overflow-x: hidden;
+        padding-top: 70px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .sidenav a {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+    }
+
+    .sidenav a:hover {
+        color: #f1f1f1;
+    }
+
+    .main {
+        margin-left: 20%; /* Same as the width of the sidenav */
+        font-size: 28px; /* Increased text to enable scrolling */
+        padding: 0px 10px;  
+    }
+
+   
+
+@media only screen and (max-width: 990px) {
+    .sidenav {
+        display: none;
+    }
+    .main {
+        margin-left: 0px !important;
+}
+
+   
+
+
+
+
+    </style>
+	
+</head>
+
+<body>
+
+<div id="full" >
+<div style="top-margin: 20px">
+
+<div class="sidenav">
+  
+     {%block chaptercontent%} {% include 'chaptercontent.html' %} {%endblock%} 
+
+</div>
+
+<section id="part1">
+
+<div class="main">
+                 <!--side row that contain video-->
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <video style="width: 100%;" controls>
+                        <source src="{% static 'home/8.02x_-_Introduction.mp4' %}" type="video/mp4">
+                        </video> 
+
+                    </div>         
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12" style="background-color: green; ">
+                            <!--tag options-->
+                          {%block videopage%} {% include 'videopageblock.html' %} {%endblock%} 
+
+                    </div>         
+                </div>
+
+
+</div>
+</section>
+
+</div>
+
+</div>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <!-- ##### Footer Area Start ##### -->
+    {% block footer %}{% include 'footer.html' %}{% endblock footer%}
+
+    <!-- ##### Footer Area End ##### -->
+
+    <!-- ##### All Javascript Script ##### -->
+    <!-- jQuery-2.2.4 js -->
+    <script src="{% static 'home/js/jquery/jquery-2.2.4.min.js' %}"></script>
+    <!-- Popper js -->
+    <script src="{% static 'home/js/bootstrap/popper.min.js' %}"></script>
+    <!-- Bootstrap js -->
+    <script src="{% static 'home/js/bootstrap/bootstrap.min.js' %}"></script>
+    <!-- All Plugins js -->
+    <script src="{% static 'home/js/plugins/plugins.js' %}"></script>
+    <!-- Active js -->
+    <script src="{% static 'home/js/active.js' %}"></script>
+    
+</body>
+
+</html>
